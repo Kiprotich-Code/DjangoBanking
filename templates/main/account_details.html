@@ -1,0 +1,28 @@
+{% extends './home.html' %}
+
+{% block content %}
+<div class="container">
+<!-- account details  -->
+{% for acc in account %}
+<div class="card text-start my-3">
+    <!-- <img class="card-img-top" src="holder.js/100px180/" alt="Title" /> -->
+    <div class="card-body">
+        <h4 class="card-title">ACC/TYPE: {{acc.account_type}}</h4>
+        <p class="card-text">AC/NO: {{acc.account_no}}</p>
+        <p class="card-text">Balance: {{acc.balance}}</p>
+        <p class="card-text">Status: {{acc.status}}</p>
+        <p class="card-text">Created On: {{acc.date_of_creation}}</p>
+    </div>
+</div>
+
+<!-- Transaction History  -->
+<p class="fw-lighter small"># Transaction History</p>
+<!-- Cta's  -->
+<div class="py-2 col-md-4">
+    <a class="btn btn-primary btn-block" href="{% url 'deposit' %}">Deposit</a><br><br>
+    <a class="btn btn-primary btn-block">Withdraw</a><br><br>
+    <a class="btn btn-primary btn-block" href="">Send</a><br>
+</div>
+</div>
+{% endfor %}
+{% endblock %}

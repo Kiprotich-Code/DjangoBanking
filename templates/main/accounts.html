@@ -1,0 +1,27 @@
+{% extends './home.html' %}
+
+{% block content %}
+<div class="container col col-md-8">
+    {% if accounts %}
+        {% for acc in accounts %}
+        <a href="{% url 'account_details' acc.id%}" class="pointer text-decoration-none">
+            <div class="card text-start my-3">
+                <!-- <img class="card-img-top" src="holder.js/100px180/" alt="Title" /> -->
+                <div class="card-body">
+                    <h4 class="card-title">ACC/TYPE: {{acc.account_type}}</h4>
+                    <p class="card-text">AC/NO: {{acc.account_no}}</p>
+                    <p class="card-text">Balance: {{acc.balance}}</p>
+                    <p class="card-text">Status: {{acc.status}}</p>
+                    <p class="card-text">Created On: {{acc.date_of_creation}}</p>
+                </div>
+            </div>
+        </a> 
+        {% endfor %}
+    {% else %}
+    <div class="bg-dark text-white p-5 m-5">
+        <h3>You don't have accounts linked to your account!</h3>
+        <a class="btn btn-light btn-lg rounded" href="{% url 'add_account'%}">Link an Account!</a>
+    </div>
+    {%endif%}
+</div>
+{% endblock %}

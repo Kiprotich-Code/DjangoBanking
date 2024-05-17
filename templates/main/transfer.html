@@ -1,0 +1,14 @@
+{% extends './home.html' %}
+
+{% block content %}
+{% if error %}
+<div class="bg-dark text-white">
+    <h1>{{error}}</h1>
+</div>
+{% endif %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Transfer Money" class="btn btn-primary">
+</form>
+{% endblock %}

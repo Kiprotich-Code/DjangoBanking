@@ -1,0 +1,15 @@
+{% extends '../index.html' %}
+
+{% block content %}
+<h1>Login</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+</form>
+<div class="py-5">
+    <p class="fw-lighter">
+        Dont have Account ?  <a href="{% url 'register' %}">Create One!</a>
+    </p>
+</div>
+{% endblock %}

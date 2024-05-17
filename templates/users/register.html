@@ -1,0 +1,13 @@
+{% extends '../index.html' %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Register">
+</form>
+
+<div class="p-5">
+    <p class="fw-lighter">Already have an account ? <a href="{% url 'login' %}">login here.</a></p>
+</div>
+{% endblock %}
