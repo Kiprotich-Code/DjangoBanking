@@ -7,7 +7,11 @@ class Account(models.Model):
     account_type = models.CharField(max_length=100)
     account_no = models.CharField(max_length=100)
     balance = models.DecimalField(max_digits=10, decimal_places=2)
-    status = models.CharField(max_length=100)
+    status = models.CharField(max_length=20, choices=[
+        ('pending', 'Pending'),
+        ('approved', 'Approved'),
+        ('rejected', 'Rejected'),
+    ], default='pending')
     date_of_creation = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

@@ -1,0 +1,25 @@
+{% extends './dashboard.html' %}
+
+{% block content %}
+<div id="content" class="can_have_sidenav">
+    <div class="p-5">
+        <div class="row gap-3">
+            <div class="card col-12 col-md-8 mb-3 p-3 rounded">
+                <h5 class="card-header">Account: {{account.account_no}}</h5>
+                <h5 class="card-text lh-lg fw-lighter"><strong>Linked To: </strong>{{account.user}}</h5>
+                <h5 class="card-text lh-lg fw-lighter"><strong>AC/NO: </strong>{{account.account_no}}</h5>
+                <h5 class="card-text lh-lg fw-lighter"><strong>Balance: </strong>{{account.balance}}</h5>
+                <h5 class="card-text lh-lg fw-lighter"><strong>Status: </strong>{{account.status}}</h5>
+                <h5 class="card-text lh-lg fw-lighter"><strong>Created On: </strong>{{account.date_of_creation}}</h5>
+            </div>
+            <div class="card border-none col col-md-3 gap-3 rounded">
+                <div class="card-header">Actions</div>
+                <button class="btn btn-info btn-sm btn-block">Approve</button>
+                <button class="btn btn-danger btn-sm btn-block">Reject</button>
+                <button class="btn btn-primary btn-sm btn-block">Transactions</button>
+                <button class="btn btn-warning btn-block">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends './dashboard.html' %}
+
+{% block content %}
+<div id="content" class="can_have_sidenav">
+    <div class="p-5">
+        <div class="row">
+            <div class="card">
+                <h5 class="card-header">Accounts</h5>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Owner</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">ACC/NO</th>
+                                    <th scope="col">Balance</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Created On</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for account in accounts %}
+                                <tr>
+                                    <td>{{account.user}}</td>
+                                    <td>{{account.account_type}}</td>
+                                    <td>{{account.account_no}}</td>
+                                    <td>{{account.balance}}</td>
+                                    <td>{{account.status}}</td>
+                                    <td>{{account.date_of_creation}}</td>
+                                    <td>
+                                        <a href="{% url 'admins_account_details' account.id %}"
+                                            class="btn btn-sm btn-outline-warning">Details</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'admins_account_details' account.id %}"
+                                            class="btn btn-sm btn-outline-info">Approve</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'admins_account_details' account.id %}"
+                                            class="btn btn-sm btn-outline-danger">Reject</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {% comment %} pagination {% endcomment %}
+                    <div class='pagination justify-content-center'>
+                        {% if page_obj.has_previous %}
+                        <a href='{% url "manage_accounts" %}?page={{ page_obj.previous_page_number }}'
+                            class="text-decoration-none">Previous </a>
+                        {% endif %}
+
+                        <span class='mx-4'>
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                        </span>
+
+                        {% if page_obj.has_next %}
+                        <a href='{% url "manage_accounts" %}?page={{ page_obj.next_page_number }}'
+                            class="text-decoration-none"> Next</a>
+                        {% endif %}
+                    </div>
+                    <!-- END Pagination -->
+                </div>
+            </div>
+        </div>
+        <div class="row gap-3 mt-3">
+            <div class="card mb-3">
+                <h5 class="card-header">Manage Accounts</h5>
+                <div class="card-body">
+                    <a class="btn btn-block btn-warning">Approved</a>
+                    <button class="btn btn-block btn-primary">Pending</button>
+                    <button class="btn btn-block btn-info">Recent</button>
+                    <button class="btn btn-block btn-danger">Rejected</button>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <h5 class="card-header">Recently Approved</h5>
+                <div class="card-body">
+                    <p class="fw-lighter">
+                        Recently approved accounts will appear here!
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h5 class="card-header">Chart</h5>
+                <div class="card-body">
+                    <div class="card-text fw-lighter">Charts Will Appear Here!</div>
+                    <div id="traffic-chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
