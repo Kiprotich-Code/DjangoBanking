@@ -36,11 +36,11 @@
                                             class="btn btn-sm btn-outline-warning">Details</a>
                                     </td>
                                     <td>
-                                        <a href="{% url 'admins_account_details' account.id %}"
+                                        <a href="{% url 'approve_account' account.id %}"
                                             class="btn btn-sm btn-outline-info">Approve</a>
                                     </td>
                                     <td>
-                                        <a href="{% url 'admins_account_details' account.id %}"
+                                        <a href="{% url 'reject_account' account.id %}"
                                             class="btn btn-sm btn-outline-danger">Reject</a>
                                     </td>
                                 </tr>
@@ -72,7 +72,7 @@
         <div class="row gap-3 mt-3">
             <div class="card mb-3">
                 <h5 class="card-header">Manage Accounts</h5>
-                <div class="card-body">
+                <div class="card-body gap-3">
                     <a class="btn btn-block btn-warning">Approved</a>
                     <button class="btn btn-block btn-primary">Pending</button>
                     <button class="btn btn-block btn-info">Recent</button>

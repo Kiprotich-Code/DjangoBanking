@@ -14,10 +14,10 @@
             </div>
             <div class="card border-none col col-md-3 gap-3 rounded">
                 <div class="card-header">Actions</div>
-                <button class="btn btn-info btn-sm btn-block">Approve</button>
-                <button class="btn btn-danger btn-sm btn-block">Reject</button>
-                <button class="btn btn-primary btn-sm btn-block">Transactions</button>
-                <button class="btn btn-warning btn-block">Back</button>
+                <a class="btn btn-info btn-sm btn-block" href="{% url 'approve_account' account.id %}">Approve</a>
+                <a class="btn btn-danger btn-sm btn-block" href="{% url 'reject_account' account.id%}">Reject</a>
+                <a class="btn btn-primary btn-sm btn-block" href="">Transactions</a>
+                <a class="btn btn-warning btn-block" href="{% url 'manage_accounts'%}">Back</a>
             </div>
         </div>
     </div>

@@ -7,11 +7,10 @@ from .managers import CustomUserManager
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_("email address"), unique=True)
-    acc_no = models.CharField(max_length=50)
     phone_no = models.IntegerField()
     alternative_phone = models.IntegerField(blank=True, null=True)
     address = models.CharField(max_length=250, blank=True)
-    alternative_address = models.CharField(max_length=250, blank=True, default='alternative address')
+    alternative_address = models.CharField(max_length=250, blank=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)

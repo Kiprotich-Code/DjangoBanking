@@ -4,6 +4,7 @@
 <div class="container col col-md-8">
     {% if accounts %}
         {% for acc in accounts %}
+        {% if acc.status == 'approved' %}
         <a href="{% url 'account_details' acc.id%}" class="pointer text-decoration-none">
             <div class="card text-start my-3">
                 <!-- <img class="card-img-top" src="holder.js/100px180/" alt="Title" /> -->
@@ -16,6 +17,11 @@
                 </div>
             </div>
         </a> 
+        {% else %}
+            <div class="bg-dark p-5 text-white mx-3">
+                <h5 class="fw-lighter">Wait until your {{acc.account_type}} account, AC/NO {{acc.account_no}} is approved. It might take 5mins, it might take longer!</h5>
+            </div>
+        {% endif %}
         {% endfor %}
     {% else %}
     <div class="bg-dark text-white p-5 m-5">

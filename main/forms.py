@@ -5,12 +5,12 @@ from .models import Account, Transaction
 class CreateAccountForm(forms.ModelForm):
     class Meta:
         model = Account
-        fields = ('account_type', 'account_no', )
+        fields = ('account_type', )
 
 class DepositForm(forms.ModelForm):
     class Meta:
         model = Transaction
-        fields = ('account', 'desc', 'amount', )
+        fields = ('desc', 'amount', )
 
 
 class TransferForm(forms.ModelForm):

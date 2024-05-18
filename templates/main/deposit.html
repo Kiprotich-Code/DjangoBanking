@@ -1,6 +1,8 @@
 {% extends './home.html' %}
 
 {% block content %}
+{{request.user}}
+
 <form action="" method="post">
     {% csrf_token %}
     {{form.as_p}}
