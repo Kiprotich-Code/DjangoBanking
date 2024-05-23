@@ -1,13 +1,46 @@
 {% extends '../index.html' %}
+{% load static %}
 
 {% block content %}
-<form action="" method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Register">
-</form>
+<div class="mt-5">
+    <div class="container mx-auto row bg-light rounded p-5">
+        <div class="col-md-6">
+            <img src="{% static 'images/lg.jpg'%}" alt="" style="width: 100%; height: 100%;">
+        </div>
+        <div class="col-md-6">
+            <h2>Sign Up</h2>
+            <hr>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="form-group mb-3">
+                    {{form.email}}
+                </div>
 
-<div class="p-5">
-    <p class="fw-lighter">Already have an account ? <a href="{% url 'login' %}">login here.</a></p>
+                <div class="form-group mb-3">
+                    {{form.phone_no}}
+                </div>
+
+                <div class="form-group mb-3">
+                    {{form.address}}
+                </div>
+
+                <div class="form-group mb-3">
+                    {{form.user_pin}}
+                </div>
+
+                <div class="form-group mb-3">
+                    {{form.password1}}
+                </div>
+
+                <div class="form-group mb-3">
+                    {{form.password2}}
+                </div>
+                <input type="submit" class="btn btn-outline-dark" value="Register">
+            </form>
+            <div class="py-2">
+                <p class="fw-light">Already have an account ? Login <a href="{% url 'login' %}">here.</a></p>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

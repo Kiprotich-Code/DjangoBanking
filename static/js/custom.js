@@ -18,3 +18,10 @@ $('.dropdown-btn').click(function () {
         dropdownContent.style.display = "none";
     }
 });
+
+setTimeout(function() {
+    let alert = document.getElementById('myAlert');
+    if (alert) {
+      alert.style.display = 'none';
+    }
+  }, 10000)
