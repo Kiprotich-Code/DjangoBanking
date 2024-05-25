@@ -122,3 +122,5 @@ AUTH_USER_MODEL = "users.CustomUser"
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+LOGIN_URL = 'login'
